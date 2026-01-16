@@ -29,12 +29,12 @@ export const Header = () => {
                 </li>
                 <li className='hidden sm:block'>
                     {/* <Link href='/' className={currentPath === '/' ? 'underline' : ''}> */}
-                    <Link href='/' data-active={currentPath === '/'} className={'data-[active=true]:underline'}>
+                    <Link href='/' data-active={currentPath === '/'} className={'data-[active=true]:underline hover:underline'}>
                         Página Inicial
                     </Link>
                 </li>
                 <li className='hidden sm:block'>
-                    <Link href='/cursos' data-active={currentPath === '/cursos'} className={'data-[active=true]:underline'}>
+                    <Link href='/cursos' data-active={currentPath === '/cursos'} className={'data-[active=true]:underline hover:underline'}>
                         Cursos
                     </Link>
                 </li>
@@ -55,12 +55,12 @@ export const Header = () => {
 
                     <li className=''>
                         {/* <Link href='/' className={currentPath === '/' ? 'underline' : ''}> */}
-                        <Link href='/' data-active={currentPath === '/'} className={'data-[active=true]:underline'}>
+                        <Link href='/' data-active={currentPath === '/'} className={'data-[active=true]:underline hover:underline'}>
                             Página Inicial
                         </Link>
                     </li>
                     <li className=''>
-                        <Link href='/cursos' data-active={currentPath === '/cursos'} className={'data-[active=true]:underline'}>
+                        <Link href='/cursos' data-active={currentPath === '/cursos'} className={'data-[active=true]:underline hover:underline'}>
                             Cursos
                         </Link>
                     </li>
