@@ -11,4 +11,4 @@ export default function PageCursos() {
             <h1>Cursos Page</h1>
         </main>
     );
-}
+}   
