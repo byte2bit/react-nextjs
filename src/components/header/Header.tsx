@@ -18,8 +18,23 @@ export const Header = () => {
         setDrawer(false);
     }, [currentPath])
 
+useEffect(() => {
+    const handle = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+            setDrawer(false);
+        
+        }
+    };
+
+    window.addEventListener ('keydown', handle);
+    return () => window.removeEventListener('keydown', handle);
+
+}, [])
+
+
     return (
-        <nav className='flex items-center gap-6 justify-start md:justify-center bg-primary py-2 sm:py-4 px-6'>
+        <>
+        <nav className='flex items-center gap-6 justify-start md:justify-center bg-primary py-2 sm:py-4 px-6 fixed top-0 left-0 right-0 z-10'>
             <button className='sm:hidden' onClick={() => setDrawer(true)}>
                 <MdMenu size={24} />
             </button>
@@ -29,17 +44,17 @@ export const Header = () => {
                 </li>
                 <li className='hidden sm:block'>
                     {/* <Link href='/' className={currentPath === '/' ? 'underline' : ''}> */}
-                    <Link href='/' data-active={currentPath === '/'} className={'data-[active=true]:underline hover:underline'}>
+                    <Link href='/' data-active={currentPath === '/'} className={'data-[active=true]:underline hover:underline outline-offset-4'}>
                         Página Inicial
                     </Link>
                 </li>
                 <li className='hidden sm:block'>
-                    <Link href='/cursos' data-active={currentPath === '/cursos'} className={'data-[active=true]:underline hover:underline'}>
+                    <Link href='/cursos' data-active={currentPath === '/cursos'} className={'data-[active=true]:underline hover:underline outline-offset-4'}>
                         Cursos
                     </Link>
                 </li>
                 <li className='hidden sm:block'>
-                    <Link href='https://blog.codarse.com' target='_blank' className='flex gap-1 items-center'>
+                    <Link href='https://blog.codarse.com' target='_blank' className='flex gap-1 items-center outline-offset-4'>
                         Blog
                         <MdOutlineOpenInNew />
                     </Link>
@@ -50,32 +65,34 @@ export const Header = () => {
                 data-open={drawer}
                 tabIndex={drawer ? undefined : -1}
                 onClick={() => setDrawer(false)}
-                className='bg-linear-to-r from-background fixed top-0 left-0 right-0 bottom-0 transition-transform data-[open=false]:-translate-x-full'>
+                className='sm:hidden bg-linear-to-r from-background fixed top-0 left-0 right-0 bottom-0 transition-transform data-[open=false]:-translate-x-full'>
                 <ul className='flex gap-4 p-4 w-60 flex-col h-full bg-background' onClick={e => e.stopPropagation()}>
 
-                    <li className=''>
+                    <li>
                         {/* <Link href='/' className={currentPath === '/' ? 'underline' : ''}> */}
-                        <Link href='/' data-active={currentPath === '/'} className={'data-[active=true]:underline hover:underline'}>
+                        <Link href='/' data-active={currentPath === '/'} className={'data-[active=true]:underline hover:underline outline-offset-4'}>
                             Página Inicial
                         </Link>
                     </li>
-                    <li className=''>
-                        <Link href='/cursos' data-active={currentPath === '/cursos'} className={'data-[active=true]:underline hover:underline'}>
+                    <li>
+                        <Link href='/cursos' data-active={currentPath === '/cursos'} className={'data-[active=true]:underline hover:underline outline-offset-4'}>
                             Cursos
                         </Link>
                     </li>
-                    <li className=''>
-                        <Link href='https://blog.codarse.com' target='_blank' className='flex gap-1 items-center'>
+                    <li>
+                        <Link href='https://blog.codarse.com' target='_blank' className='flex gap-1 items-center outline-offset-4'>
                             Blog
                             <MdOutlineOpenInNew />
                         </Link>
                     </li>
                 </ul>
             </div>
-            <h1 className='sm:hidden'>
+            <h1 className='sm:hidden line-clamp-1'>
                 {title}
                 {/* {currentPath === '/' ? 'Página Inicial' : currentPath === '/cursos' ? 'Cursos' : ''} */}
             </h1>
         </nav>
+        <div className="h-5.5 sm:h-8"></div>
+        </>
     );
 }
