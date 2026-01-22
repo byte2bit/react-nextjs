@@ -1,3 +1,4 @@
+import { Section } from "@/components/section/Section";
 import { Metadata } from "next";
 
 
@@ -8,7 +9,10 @@ export const metadata: Metadata = {
 export default function PageCursos() {
     return (
         <main>
-            <h1>Cursos Page</h1>
+            <Section
+            title="Todos os Cursos"
+            variant="grid"
+            />
         </main>
     );
 }   
