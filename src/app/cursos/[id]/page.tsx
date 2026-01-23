@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 
+import { CourseHeader } from "@/components/course-header/CourseHeader";
+
 interface Props {
     params: { id: string }
 }
@@ -17,8 +19,9 @@ export default async function PageCourseDetail({ params }: Props) {
     const { id } = resolvedParams;
     return (
         <main className="mt-8 flex justify-center">
-            <div className="mt-8 min-[880px]:max-w-[880px]">
-                Detalhe de Curso - {id}
+            <div className="w-full mt-8 min-[880px]:max-w-[880px]">
+                
+                <CourseHeader />
             </div>
         </main>
     )

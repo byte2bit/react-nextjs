@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function PageCursos() {
     return (
         <main className="mt-8 flex justify-center">
-            <div className="mt-8 min-[880px]:max-w-[880px]">
+            <div className="w-full mt-8 min-[880px]:max-w-[880px]">
                 <Section
                     title="Todos os Cursos"
                     variant="grid"
